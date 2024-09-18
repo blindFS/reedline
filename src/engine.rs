@@ -681,6 +681,11 @@ impl Reedline {
         Ok(())
     }
 
+    /// Return the region of selected text if any, format: (start, end)
+    pub fn get_selection(&self) -> Option<(usize, usize)> {
+        self.editor.get_selection()
+    }
+
     /// Helper implementing the logic for [`Reedline::read_line()`] to be wrapped
     /// in a `raw_mode` context.
     fn read_line_helper(&mut self, prompt: &dyn Prompt) -> Result<Signal> {
